@@ -1,29 +1,78 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.frogermcs.androiddevmetrics'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'realm-android'
+
+if (file("../BaseLibrary/fir_publish.gradle").exists()) {
+    apply from: "../BaseLibrary/fir_publish.gradle"
+}
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
-        applicationId "com.ray.mvvm.sample"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            shrinkResources false
+            applicationIdSuffix '.debug'
+        }
         release {
             minifyEnabled false
+            debuggable false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.sourceCompatibilityVersion
+        targetCompatibility rootProject.ext.targetCompatibilityVersion
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    dexOptions {
+        javaMaxHeapSize "2048M"
+    }
+}
+
+retrolambda {
+    javaVersion rootProject.ext.retrolambdaJavaVersion
+    defaultMethods true
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    testCompile 'junit:junit:4.12'
+    compile project(':BaseLibrary')
+
+    annotationProcessor depMap.DaggerCompile
+
+    provided depMap.JavaxAnnotations
+
+    debugCompile depMap.LeakCanary
+    releaseCompile depMap.LeakCanaryAndroidNoOp
+    testCompile depMap.LeakCanaryAndroidNoOp
+
+    testCompile depMap.JUnit
+    testCompile depMap.Annotations
+    androidTestCompile depMap.RunnerSupport
+    androidTestCompile depMap.Annotations
+    androidTestCompile depMap.JUnit
 }

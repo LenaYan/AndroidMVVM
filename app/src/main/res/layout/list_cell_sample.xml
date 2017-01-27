@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.ray.mvvm.sample.view.main.vm.SampleCellVM" />
+
+        <variable
+            name="viewModel"
+            type="SampleCellVM" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/list_cell_min_height"
+        android:onClick="@{viewModel::onContentClicked}"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_l"
+            android:text="@{viewModel.data.name, default = Name}" />
+
+    </LinearLayout>
+</layout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidMVVM</string>
+    <string name="title_activity_main">AndroidMVVM</string>
+    <string name="title_activity_simple_page">SimplePage</string>
 </resources>

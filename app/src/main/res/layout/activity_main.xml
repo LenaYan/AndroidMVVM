@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="com.ray.mvvm.sample.view.main.binding.ActivityMainBinding">
+
+        <import type="com.ray.mvvm.sample.view.main.vm.MainVM" />
+
+        <variable
+            name="viewModel"
+            type="MainVM" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.ray.mvvm.sample.view.main.MainActivity">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/padding_l"
+            app:adapter="@{viewModel.adapter}"
+            app:dividerColor="@{@color/divider_gray}"
+            app:dividerHeight="@{@dimen/divider}"
+            app:layoutManager="@{viewModel.layoutManager}"
+            app:showLastDivider="@{true}" />
+
+    </RelativeLayout>
+
+</layout>

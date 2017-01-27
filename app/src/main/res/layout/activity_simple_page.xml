@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="com.ray.mvvm.sample.view.simple.binding.ActivitySimplePageBinding">
+
+        <import type="com.ray.mvvm.sample.view.simple.vm.SimplePageVM" />
+
+        <variable
+            name="viewModel"
+            type="SimplePageVM" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.ray.mvvm.sample.view.simple.SimplePageActivity">
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

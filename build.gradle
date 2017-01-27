@@ -1,23 +1,86 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+apply plugin: "com.jfrog.artifactory"
+
+apply from: 'BaseLibrary/dependencies.gradle'
+
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
+        maven {
+            url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "http://106.75.77.246:8081/artifactory/libs-release-local"
+            credentials {
+                username = artifactory_reader
+                password = artifactory_reader_password
+            }
+        }
+        maven {
+            url "http://106.75.77.246:8081/artifactory/libs-snapshot-local"
+            credentials {
+                username = artifactory_reader
+                password = artifactory_reader_password
+            }
+        }
+        maven {
+            url "http://maven.bughd.com/public"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0-beta2'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.frogermcs.androiddevmetrics:androiddevmetrics-plugin:0.4'
+        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
+        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+        classpath 'io.realm:realm-gradle-plugin:2.2.0'
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
+        classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.4.7'
+        classpath 'im.fir:gradle-fir-publisher:1.0.7'
     }
+    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
 }
 
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
+        maven {
+            url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "http://106.75.77.246:8081/artifactory/libs-release-local"
+            credentials {
+                username = artifactory_reader
+                password = artifactory_reader_password
+            }
+        }
+        maven {
+            url "http://106.75.77.246:8081/artifactory/libs-snapshot-local"
+            credentials {
+                username = artifactory_reader
+                password = artifactory_reader_password
+            }
+        }
+        maven {
+            url "http://maven.bughd.com/public"
+        }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    versionName = '1.0.0'
+    versionCode = 1
+    applicationId = 'com.ray.mvvm.sample'
 }
