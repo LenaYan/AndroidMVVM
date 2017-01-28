@@ -5,16 +5,59 @@
 
         <import type="com.ray.mvvm.sample.view.simple.vm.SimplePageVM" />
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="SimplePageVM" />
     </data>
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.ray.mvvm.sample.view.simple.SimplePageActivity">
 
-    </android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_l">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:hintAnimationEnabled="@{viewModel.hintAnimEnabled}"
+                app:hintEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_hint"
+                    android:text="@={viewModel.input, default = null}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={viewModel.enableUpperCase, default = true}"
+                android:text="@string/enable_to_upper_case" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onToUpperCase}"
+                android:text="@string/to_upper_case"
+                android:visibility="@{viewModel.enableUpperCase ? View.VISIBLE : View.GONE, default = visible}" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onSubmiteClicked}"
+                android:text="@string/submite" />
+        </LinearLayout>
+
+    </ScrollView>
 </layout>
