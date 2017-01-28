@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import com.ray.mvvm.lib.view.adapter.list.base.ListAdapter;
 import com.ray.mvvm.sample.databinding.ListCellSampleBinding;
 import com.ray.mvvm.sample.model.model.SampleEntity;
-import com.ray.mvvm.sample.view.main.contract.MainContract;
 import com.ray.mvvm.sample.view.main.vm.SampleCellVM;
 
 /**
@@ -30,10 +29,7 @@ import com.ray.mvvm.sample.view.main.vm.SampleCellVM;
  */
 public class SampleListAdapter extends ListAdapter<SampleEntity> {
 
-    private MainContract.SampleCellView sampleCellView;
-
-    public SampleListAdapter(MainContract.SampleCellView sampleCellView) {
-        this.sampleCellView = sampleCellView;
+    public SampleListAdapter() {
     }
 
     @Override
@@ -43,6 +39,7 @@ public class SampleListAdapter extends ListAdapter<SampleEntity> {
 
     @Override
     protected Object createViewModel(RecyclerView.ViewHolder holder, int position) {
-        return new SampleCellVM(getItem(position), holder, sampleCellView);
+        final SampleEntity sampleEntity = getItem(position);
+        return new SampleCellVM(sampleEntity, holder, sampleEntity.getItemClick());
     }
 }

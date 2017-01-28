@@ -28,7 +28,7 @@ public final class MainVMModule {
     @Provides
     @PerActivity
     MainVM provideVM(MainP presenter, @Named(ListType.VERTICAL) LinearLayoutManager layoutManager) {
-        return new MainVM(presenter, view, layoutManager, new SampleListAdapter(view));
+        return new MainVM(presenter, view, layoutManager, new SampleListAdapter());
     }
 
 }

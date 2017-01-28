@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="com.ray.mvvm.sample.view.event.binding.ActivityEventBusBinding">
+
+        <import type="com.ray.mvvm.sample.view.event.vm.EventBusVM" />
+
+        <variable
+            name="viewModel"
+            type="EventBusVM" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_xl"
+        tools:context="com.ray.mvvm.sample.view.event.EventBusActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/name_format(viewModel.entity.name), default = Name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_l"
+            android:text="@{@string/des_format(viewModel.entity.des), default = Des}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_l"
+            android:text="@{@string/time_format(String.valueOf(viewModel.entity.time)), default = Time}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_l"
+            android:onClick="@{viewModel::onSendEventClicked}"
+            android:text="@string/local_sender" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onSendEventFromDiffThreadClicked}"
+            android:text="@string/sender_from_another_thread" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onStartNextPageClicked}"
+            android:text="@string/start_next_page" />
+
+    </LinearLayout>
+</layout>

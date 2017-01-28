@@ -6,7 +6,9 @@ import com.ray.mvvm.lib.view.adapter.list.base.ListAdapter;
 import com.ray.mvvm.lib.viewmodel.ListVM;
 import com.ray.mvvm.sample.R;
 import com.ray.mvvm.sample.model.model.SampleEntity;
+import com.ray.mvvm.sample.view.event.EventBusActivity;
 import com.ray.mvvm.sample.view.main.contract.MainContract;
+import com.ray.mvvm.sample.view.simple.SimpleDataPageActivity;
 import com.ray.mvvm.sample.view.simple.SimplePageActivity;
 
 import java.util.ArrayList;
@@ -20,7 +22,9 @@ public final class MainVM extends ListVM<MainContract.Presenter, MainContract.Vi
 
     public void init() {
         List<SampleEntity> sampleEntities = new ArrayList<>();
-        sampleEntities.add(new SampleEntity(SimplePageActivity.class, view.findString(R.string.title_activity_simple_page), (position, view1, sampleEntity) -> SimplePageActivity.start(view)));
+        sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_simple_page), (position, view1, sampleEntity) -> SimplePageActivity.start(view)));
+        sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_simple_data_page), (position, view1, sampleEntity) -> SimpleDataPageActivity.start(view)));
+        sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_event_bus), (position, view1, sampleEntity) -> EventBusActivity.start(view)));
         onNext(sampleEntities);
     }
 

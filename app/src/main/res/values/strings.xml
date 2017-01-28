@@ -3,12 +3,28 @@
 
     <string name="submite">Submite</string>
 
+    <!--Simple-->
     <string name="input_hint">InputHint</string>
     <string name="to_upper_case">ToUpperCase</string>
     <string name="enable_to_upper_case">Enable To Upper Case</string>
     <string name="input_null_checking">Pls input your content.</string>
     <string name="submite_successfully">Submite Successfully.</string>
+    <string name="done">Done</string>
+    <string name="event_received">Event received.</string>
+    <string name="event_sent">Event sent</string>
+    <string name="name_format">Name: %1$s</string>
+    <string name="des_format">Des: %1$s</string>
+    <string name="time_format">Time: %1$s</string>
+
+    <!--Event-->
+    <string name="local_sender">Local Sender</string>
+    <string name="sender_from_another_thread">Send from another thread</string>
+    <string name="sender_from_another_page">Send from another page</string>
+    <string name="start_next_page">Start next page</string>
 
     <string name="title_activity_main">AndroidMVVM</string>
     <string name="title_activity_simple_page">SimplePage</string>
+    <string name="title_activity_simple_data_page">SimpleDataPage</string>
+    <string name="title_activity_event_bus">EventBus</string>
+    <string name="title_activity_event_bus_next">EventBusNextActivity</string>
 </resources>

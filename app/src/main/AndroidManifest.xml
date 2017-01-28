@@ -22,6 +22,15 @@
         <activity
             android:name=".view.simple.SimplePageActivity"
             android:label="@string/title_activity_simple_page" />
+        <activity
+            android:name=".view.simple.SimpleDataPageActivity"
+            android:label="@string/title_activity_simple_data_page" />
+        <activity
+            android:name=".view.event.EventBusActivity"
+            android:label="@string/title_activity_event_bus" />
+        <activity
+            android:name=".view.event.EventBusNextActivity"
+            android:label="@string/title_activity_event_bus_next"></activity>
     </application>
 
 </manifest>
