@@ -6,4 +6,21 @@
 
     <color name="divider_gray">#6AD6D6D6</color>
 
+    <!--Text Colors-->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_black">#0A0A0A</color>
+    <color name="text_black_light">#778087</color>
+    <color name="text_gray">#cccccc</color>
+    <color name="text_gray_dark">#818181</color>
+    <color name="text_yellow_dark">#AA9024</color>
+    <color name="text_blue">#00B0FF</color>
+    <color name="text_blue_dark">#0091EA</color>
+    <color name="text_blue_light">#40C4FF</color>
+    <color name="text_white_transparent">#B0FFFFFF</color>
+    <color name="text_green">#00C853</color>
+    <color name="text_red">#F44336</color>
+    <color name="text_pink">#F06292</color>
+    <color name="text_green_light">#B2DFDB</color>
+    <color name="text_yellow">#FFFF00</color>
+
 </resources>

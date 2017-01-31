@@ -30,7 +30,13 @@
             android:label="@string/title_activity_event_bus" />
         <activity
             android:name=".view.event.EventBusNextActivity"
-            android:label="@string/title_activity_event_bus_next"></activity>
+            android:label="@string/title_activity_event_bus_next" />
+        <activity
+            android:name=".view.list.SimpleListActivity"
+            android:label="@string/title_activity_simple_list" />
+        <activity
+            android:name=".view.list.TestListActivity"
+            android:label="@string/title_activity_test_list"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="com.ray.mvvm.sample.view.list.binding.ContentSimpleListBinding">
+
+        <import type="com.ray.mvvm.sample.view.list.vm.SimpleListVM" />
+
+        <variable
+            name="viewModel"
+            type="SimpleListVM" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.ray.mvvm.sample.view.list.SimpleListActivity">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/padding_l"
+            app:adapter="@{viewModel.adapter}"
+            app:dividerColor="@{@color/divider_gray}"
+            app:dividerHeight="@{@dimen/divider}"
+            app:layoutManager="@{viewModel.layoutManager}"
+            app:showLastDivider="@{true}" />
+    </RelativeLayout>
+</layout>

@@ -7,6 +7,8 @@ import com.ray.mvvm.lib.viewmodel.ListVM;
 import com.ray.mvvm.sample.R;
 import com.ray.mvvm.sample.model.model.SampleEntity;
 import com.ray.mvvm.sample.view.event.EventBusActivity;
+import com.ray.mvvm.sample.view.list.TestListActivity;
+import com.ray.mvvm.sample.view.list.SimpleListActivity;
 import com.ray.mvvm.sample.view.main.contract.MainContract;
 import com.ray.mvvm.sample.view.simple.SimpleDataPageActivity;
 import com.ray.mvvm.sample.view.simple.SimplePageActivity;
@@ -25,6 +27,8 @@ public final class MainVM extends ListVM<MainContract.Presenter, MainContract.Vi
         sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_simple_page), (position, view1, sampleEntity) -> SimplePageActivity.start(view)));
         sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_simple_data_page), (position, view1, sampleEntity) -> SimpleDataPageActivity.start(view)));
         sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_event_bus), (position, view1, sampleEntity) -> EventBusActivity.start(view)));
+        sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_simple_list), (position, view1, sampleEntity) -> SimpleListActivity.start(view)));
+        sampleEntities.add(new SampleEntity(view.findString(R.string.title_activity_test_list), (position, view1, sampleEntity) -> TestListActivity.start(view)));
         onNext(sampleEntities);
     }
 

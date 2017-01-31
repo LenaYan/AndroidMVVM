@@ -27,4 +27,6 @@
     <string name="title_activity_simple_data_page">SimpleDataPage</string>
     <string name="title_activity_event_bus">EventBus</string>
     <string name="title_activity_event_bus_next">EventBusNext</string>
+    <string name="title_activity_simple_list">SimpleList</string>
+    <string name="title_activity_test_list">TestList</string>
 </resources>

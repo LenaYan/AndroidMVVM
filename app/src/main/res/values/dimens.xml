@@ -21,5 +21,6 @@
     <dimen name="padding_xl">12dp</dimen>
     <dimen name="padding_xxl">15dp</dimen>
     <dimen name="padding_bottom">20dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>
