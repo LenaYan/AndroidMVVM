@@ -26,5 +26,5 @@
     <string name="title_activity_simple_page">SimplePage</string>
     <string name="title_activity_simple_data_page">SimpleDataPage</string>
     <string name="title_activity_event_bus">EventBus</string>
-    <string name="title_activity_event_bus_next">EventBusNextActivity</string>
+    <string name="title_activity_event_bus_next">EventBusNext</string>
 </resources>
