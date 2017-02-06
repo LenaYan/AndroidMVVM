@@ -8,6 +8,7 @@ import com.ray.mvvm.sample.view.main.MainActivity;
 import com.ray.mvvm.sample.view.main.vm.module.MainVMModule;
 
 import dagger.Component;
+import rx.subjects.Subject;
 
 public interface MainContract {
 
@@ -18,6 +19,7 @@ public interface MainContract {
     }
 
     interface View extends IView {
+        void showPermissionDialog(Subject<Boolean, Boolean> subject);
     }
 
     interface Presenter extends IPresenter {
