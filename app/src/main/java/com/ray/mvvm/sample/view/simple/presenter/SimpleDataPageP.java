@@ -15,8 +15,8 @@ public class SimpleDataPageP extends CommonPresenter implements SimpleDataPageCo
 
     @Override
     public void requstData(ExObserver<TestEntity> observer) {
-        mockCommonRespObsFunc(() -> new TestEntity("Title(from server)", "Des(from server)", System.currentTimeMillis()))
-                .compose(commonObservableTransformer(observer))
+        mockResp(() -> new TestEntity("Title(from server)", "Des(from server)", System.currentTimeMillis()))
+                .compose(applyAsync(observer))
                 .subscribe(observer);
     }
 

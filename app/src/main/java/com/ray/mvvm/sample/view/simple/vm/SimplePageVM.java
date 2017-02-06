@@ -20,11 +20,12 @@ public final class SimplePageVM extends BaseVM<SimplePageContract.Presenter, Sim
 
     public SimplePageVM(SimplePageContract.Presenter presenter, SimplePageContract.View view) {
         super(presenter, view);
-        view.lifecycle()
-                .map(lifecycleEvent -> lifecycleEvent == LifecycleEvent.RESUME)
+        view
+                .lifecycle()
                 .compose(view.bindUntilEvent(LifecycleEvent.DESTROY))
-                .subscribe(isResume ->
-                        view.postRunnable(() -> setHintAnimEnabled(isResume)));
+                .takeFirst(lifecycleEvent -> lifecycleEvent == LifecycleEvent.RESUME)
+                .single()
+                .subscribe(lifecycleEvent -> view.postRunnable(() -> setHintAnimEnabled(lifecycleEvent == LifecycleEvent.RESUME)));
     }
 
     private boolean inputCheck() {

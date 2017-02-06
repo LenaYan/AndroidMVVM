@@ -23,7 +23,7 @@ public class EventBusP extends CommonPresenter implements EventBusContract.Prese
                     RxBus.instance().post(new TestEvent(new TestEntity("Sent from thread" + Thread.currentThread().getId(), "Event from another thread.", System.currentTimeMillis())));
                     return result;
                 })
-                .compose(commonObservableTransformer())
+                .compose(applyAsync())
                 .subscribe();
     }
 }

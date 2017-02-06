@@ -21,7 +21,7 @@ public class TestListP extends CommonPresenter implements TestListContract.Prese
 
     @Override
     public void requestTestList(int page, ExObserver<ListRespEntity<TestEntity>> observer) {
-        mockCommonRespObsFunc(() -> {
+        mockResp(() -> {
             List<TestEntity> testEntities = new ArrayList<>();
             ListRespEntity<TestEntity> respEntity = new ListRespEntity<>();
             if (page == 1)
@@ -37,7 +37,7 @@ public class TestListP extends CommonPresenter implements TestListContract.Prese
             respEntity.setList(testEntities);
             return respEntity;
         })
-                .compose(commonObservableTransformer(observer))
+                .compose(applyAsync(observer))
                 .subscribe(observer);
     }
 }

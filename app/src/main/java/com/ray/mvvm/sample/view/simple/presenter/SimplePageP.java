@@ -1,5 +1,6 @@
 package com.ray.mvvm.sample.view.simple.presenter;
 
+import com.ray.mvvm.lib.model.model.GenericRespEntity;
 import com.ray.mvvm.lib.model.model.RespEntity;
 import com.ray.mvvm.lib.presenter.GenericPresenter;
 import com.ray.mvvm.sample.view.simple.contract.SimplePageContract;
@@ -16,8 +17,8 @@ public final class SimplePageP extends GenericPresenter implements SimplePageCon
 
     @Override
     public void submiteData(String input, Subscriber<RespEntity> subscriber) {
-        mockGenericRespObservable()
-                .compose(genericObservableTransformerVoid())
+        mockResp(new GenericRespEntity<>(RespEntity.SUCCESS))
+                .compose(applyAsyncGenericVoid())
                 .subscribe(subscriber);
     }
 }
