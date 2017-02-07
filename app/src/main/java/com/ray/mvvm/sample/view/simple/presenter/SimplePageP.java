@@ -1,5 +1,6 @@
 package com.ray.mvvm.sample.view.simple.presenter;
 
+import com.ray.mvvm.lib.model.http.event.ErrorEvent;
 import com.ray.mvvm.lib.model.model.GenericRespEntity;
 import com.ray.mvvm.lib.model.model.RespEntity;
 import com.ray.mvvm.lib.presenter.GenericPresenter;
@@ -17,7 +18,7 @@ public final class SimplePageP extends GenericPresenter implements SimplePageCon
 
     @Override
     public void submiteData(String input, Subscriber<RespEntity> subscriber) {
-        mockResp(new GenericRespEntity<>(RespEntity.SUCCESS))
+        mockResp(new GenericRespEntity<>(ErrorEvent.SUCCESS))
                 .compose(applyAsyncGenericVoid())
                 .subscribe(subscriber);
     }
