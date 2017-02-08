@@ -8,7 +8,6 @@ import com.ray.mvvm.lib.BR;
 import com.ray.mvvm.lib.model.http.ExSubscriber;
 import com.ray.mvvm.lib.model.model.RespEntity;
 import com.ray.mvvm.lib.viewmodel.BaseVM;
-import com.ray.mvvm.lib.widget.lifecycle.LifecycleEvent;
 import com.ray.mvvm.sample.R;
 import com.ray.mvvm.sample.view.simple.contract.SimplePageContract;
 
@@ -20,12 +19,7 @@ public final class SimplePageVM extends BaseVM<SimplePageContract.Presenter, Sim
 
     public SimplePageVM(SimplePageContract.Presenter presenter, SimplePageContract.View view) {
         super(presenter, view);
-        view
-                .lifecycle()
-                .compose(view.bindUntilEvent(LifecycleEvent.DESTROY))
-                .takeFirst(lifecycleEvent -> lifecycleEvent == LifecycleEvent.RESUME)
-                .single()
-                .subscribe(lifecycleEvent -> view.postRunnable(() -> setHintAnimEnabled(lifecycleEvent == LifecycleEvent.RESUME)));
+        view.delayToResume(() -> setHintAnimEnabled(true));
     }
 
     private boolean inputCheck() {
