@@ -36,7 +36,7 @@
             android:label="@string/title_activity_simple_list" />
         <activity
             android:name=".view.list.TestListActivity"
-            android:label="@string/title_activity_test_list"></activity>
+            android:label="@string/title_activity_test_list" />
     </application>
 
 </manifest>

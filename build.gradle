@@ -33,7 +33,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0-beta3'
+        classpath 'com.android.tools.build:gradle:2.3.0-beta4'
         classpath 'com.frogermcs.androiddevmetrics:androiddevmetrics-plugin:0.4'
         classpath 'me.tatarka:gradle-retrolambda:3.4.0'
         classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
@@ -83,4 +83,5 @@ ext {
     versionName = '1.0.0'
     versionCode = 1
     applicationId = 'com.ray.mvvm.sample'
+    testApplicationId = applicationId + '.test'
 }

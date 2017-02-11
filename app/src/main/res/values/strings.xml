@@ -29,4 +29,6 @@
     <string name="title_activity_event_bus_next">EventBusNext</string>
     <string name="title_activity_simple_list">SimpleList</string>
     <string name="title_activity_test_list">TestList</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="title_activity_product_list">ProductListActivity</string>
 </resources>

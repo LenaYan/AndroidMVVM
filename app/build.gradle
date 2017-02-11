@@ -13,6 +13,7 @@ android {
 
     defaultConfig {
         applicationId rootProject.applicationId
+        testApplicationId rootProject.testApplicationId
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -75,4 +76,8 @@ dependencies {
     androidTestCompile depMap.RunnerSupport
     androidTestCompile depMap.Annotations
     androidTestCompile depMap.JUnit
+    androidTestCompile(depMap.EspressoCore, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
 }
