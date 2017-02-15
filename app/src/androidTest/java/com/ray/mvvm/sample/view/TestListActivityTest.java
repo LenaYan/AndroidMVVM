@@ -1,11 +1,9 @@
 package com.ray.mvvm.sample.view;
 
-import android.app.Activity;
 import android.os.Build;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.action.ViewActions;
-import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.MediumTest;
@@ -15,10 +13,8 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.RecyclerView;
 
 import com.ray.mvvm.lib.view.adapter.list.base.StateListAdapter;
-import com.ray.mvvm.sample.ActivityUtil;
 import com.ray.mvvm.sample.R;
 import com.ray.mvvm.sample.view.list.TestListActivity;
-import com.ray.mvvm.sample.view.main.MainActivity;
 
 import junit.framework.Assert;
 
@@ -51,27 +47,20 @@ import org.junit.runner.RunWith;
 public class TestListActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> testRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<TestListActivity> testRule = new ActivityTestRule<>(TestListActivity.class, true, true);
 
     private IdlingResource idlingResource;
+    private TestListActivity testListActivity;
 
     @Before
     public void init() {
+        testListActivity = testRule.getActivity();
+        idlingResource = testListActivity.getIdlingResource();
+        Espresso.registerIdlingResources(idlingResource);
     }
 
     @Test
     public void testSimpleList() {
-        RecyclerView mainListView = (RecyclerView) testRule.getActivity().findViewById(R.id.data_list);
-        Assert.assertEquals(5, mainListView.getAdapter().getItemCount());
-        Espresso.onView(ViewMatchers.withId(R.id.data_list))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(4, ViewActions.click()));
-
-        Activity activity = ActivityUtil.getCurrentActivity();
-        Assert.assertTrue(activity instanceof TestListActivity);
-        TestListActivity testListActivity = (TestListActivity) activity;
-        idlingResource = testListActivity.getIdlingResource();
-        Espresso.registerIdlingResources(idlingResource);
         RecyclerView recyclerView = (RecyclerView) testListActivity.findViewById(R.id.data_list);
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
         Assert.assertNotNull(recyclerView);

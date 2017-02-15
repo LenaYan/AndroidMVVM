@@ -78,19 +78,38 @@ dependencies {
 
     testCompile depMap.JUnit
     testCompile depMap.Annotations
-    androidTestCompile depMap.RunnerSupport
-    androidTestCompile depMap.RulesSupport
+    androidTestCompile(depMap.JUnit, {
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+    })
+    androidTestCompile(depMap.RunnerSupport, {
+        exclude group: 'junit', module: 'junit'
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile(depMap.RulesSupport, {
+        exclude group: 'com.android.support.test', module: 'runner'
+    })
     androidTestCompile depMap.Annotations
-    androidTestCompile depMap.JUnit
     androidTestCompile depMap.RecyclerView
     androidTestCompile depMap.Design
     androidTestCompile depMap.AppCompat
     androidTestCompile depMap.FindBugs
+    androidTestCompile depMap.Hamcrest
+    androidTestCompile(depMap.HamcrestLibrary, {
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+    })
+    androidTestCompile(depMap.HamcrestIntegration, {
+        exclude group: 'org.hamcrest', module: 'hamcrest-library'
+    })
     androidTestCompile(depMap.EspressoContrib, {
+        exclude group: 'com.android.support.test.espresso', module: 'espresso-core'
         exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
     })
     androidTestCompile(depMap.EspressoIntents, {
+        exclude group: 'com.android.support.test.espresso', module: 'espresso-core'
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
@@ -99,8 +118,13 @@ dependencies {
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
     androidTestCompile(depMap.EspressoCore, {
+        exclude group: 'com.android.support.test.espresso', module: 'espresso-idling-resource'
+        exclude group: 'com.android.support.test', module: 'rules'
+        exclude group: 'com.android.support.test', module: 'runner'
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'org.hamcrest', module: 'hamcrest-library'
+        exclude group: 'org.hamcrest', module: 'hamcrest-integration'
     })
 
 }
