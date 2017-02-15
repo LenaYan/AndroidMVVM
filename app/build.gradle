@@ -74,10 +74,28 @@ dependencies {
     testCompile depMap.JUnit
     testCompile depMap.Annotations
     androidTestCompile depMap.RunnerSupport
+    androidTestCompile depMap.RulesSupport
     androidTestCompile depMap.Annotations
     androidTestCompile depMap.JUnit
+    androidTestCompile depMap.RecyclerView
+    androidTestCompile depMap.Design
+    androidTestCompile depMap.AppCompat
+    androidTestCompile depMap.FindBugs
+    androidTestCompile(depMap.EspressoContrib, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+    androidTestCompile(depMap.EspressoIntents, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+    androidTestCompile(depMap.EspressoIDLing, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
     androidTestCompile(depMap.EspressoCore, {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
+
 }

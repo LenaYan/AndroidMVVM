@@ -3,6 +3,8 @@
 
     <string name="submite">Submite</string>
 
+    <string name="allow">allow</string>
+
     <!--Simple-->
     <string name="input_hint">InputHint</string>
     <string name="to_upper_case">ToUpperCase</string>

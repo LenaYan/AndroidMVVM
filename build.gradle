@@ -15,20 +15,6 @@ buildscript {
             url "https://plugins.gradle.org/m2/"
         }
         maven {
-            url "http://106.75.77.246:8081/artifactory/libs-release-local"
-            credentials {
-                username = artifactory_reader
-                password = artifactory_reader_password
-            }
-        }
-        maven {
-            url "http://106.75.77.246:8081/artifactory/libs-snapshot-local"
-            credentials {
-                username = artifactory_reader
-                password = artifactory_reader_password
-            }
-        }
-        maven {
             url "http://maven.bughd.com/public"
         }
     }
@@ -54,20 +40,6 @@ allprojects {
         }
         maven {
             url "https://plugins.gradle.org/m2/"
-        }
-        maven {
-            url "http://106.75.77.246:8081/artifactory/libs-release-local"
-            credentials {
-                username = artifactory_reader
-                password = artifactory_reader_password
-            }
-        }
-        maven {
-            url "http://106.75.77.246:8081/artifactory/libs-snapshot-local"
-            credentials {
-                username = artifactory_reader
-                password = artifactory_reader_password
-            }
         }
         maven {
             url "http://maven.bughd.com/public"
