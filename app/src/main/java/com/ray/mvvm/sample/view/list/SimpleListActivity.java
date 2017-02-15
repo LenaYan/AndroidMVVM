@@ -16,7 +16,10 @@ import javax.inject.Inject;
 
 public class SimpleListActivity extends BaseDIActivity implements SimpleListContract.View {
 
-    @Inject SimpleListVM viewModel;
+    public static final int MOCK_DATA_COUNT = 20;
+
+    @Inject
+    SimpleListVM viewModel;
 
     public static void start(IRedirect redirect) {
         redirect.intent(SimpleListActivity.class);

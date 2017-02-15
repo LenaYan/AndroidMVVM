@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <data class="com.ray.mvvm.sample.view.list.binding.ContentSimpleListBinding">
+    <data class="com.ray.mvvm.sample.view.list.binding.ActivitySimpleListBinding">
 
         <import type="com.ray.mvvm.sample.view.list.vm.SimpleListVM" />
 
@@ -19,6 +19,7 @@
         tools:context="com.ray.mvvm.sample.view.list.SimpleListActivity">
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/data_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"

@@ -5,12 +5,19 @@ import android.support.v7.widget.LinearLayoutManager;
 import com.ray.mvvm.lib.view.adapter.list.base.StateListAdapter;
 import com.ray.mvvm.lib.viewmodel.EndLessListRespVM;
 import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.test.SimpleIdlingResource;
 import com.ray.mvvm.sample.view.list.contract.TestListContract;
 
 public class TestListVM extends EndLessListRespVM<TestListContract.Presenter, TestListContract.View, TestEntity> {
 
+    private SimpleIdlingResource idlingResource;
+
     public TestListVM(TestListContract.Presenter presenter, TestListContract.View view, LinearLayoutManager layoutManager, StateListAdapter<TestEntity> adapter) {
         super(presenter, view, layoutManager, adapter);
+    }
+
+    public void setIdlingResource(SimpleIdlingResource idlingResource) {
+        this.idlingResource = idlingResource;
     }
 
     @Override
@@ -18,4 +25,9 @@ public class TestListVM extends EndLessListRespVM<TestListContract.Presenter, Te
         presenter.requestTestList(pageNum, this);
     }
 
+    @Override
+    public void onCompleted() {
+        super.onCompleted();
+        idlingResource.setIdleNow(true);
+    }
 }

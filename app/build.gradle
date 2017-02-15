@@ -71,6 +71,11 @@ dependencies {
     releaseCompile depMap.LeakCanaryAndroidNoOp
     testCompile depMap.LeakCanaryAndroidNoOp
 
+    compile(depMap.EspressoIDLing, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+
     testCompile depMap.JUnit
     testCompile depMap.Annotations
     androidTestCompile depMap.RunnerSupport
