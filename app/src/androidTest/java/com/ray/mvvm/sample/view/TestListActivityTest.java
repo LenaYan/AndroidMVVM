@@ -47,13 +47,14 @@ import org.junit.runner.RunWith;
 public class TestListActivityTest {
 
     @Rule
-    public ActivityTestRule<TestListActivity> testRule = new ActivityTestRule<>(TestListActivity.class, true, true);
+    public ActivityTestRule<TestListActivity> testRule = new ActivityTestRule<>(TestListActivity.class, true, false);
 
     private IdlingResource idlingResource;
     private TestListActivity testListActivity;
 
     @Before
     public void init() {
+        testRule.launchActivity(null);
         testListActivity = testRule.getActivity();
         idlingResource = testListActivity.getIdlingResource();
         Espresso.registerIdlingResources(idlingResource);
