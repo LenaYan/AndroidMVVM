@@ -1,11 +1,6 @@
 package com.ray.mvvm.sample.view;
 
 import android.os.Build;
-import android.support.test.espresso.Espresso;
-import android.support.test.espresso.IdlingResource;
-import android.support.test.espresso.action.ViewActions;
-import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.MediumTest;
 import android.support.test.filters.SdkSuppress;
 import android.support.test.rule.ActivityTestRule;
@@ -18,7 +13,6 @@ import com.ray.mvvm.sample.view.list.TestListActivity;
 
 import junit.framework.Assert;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -47,17 +41,13 @@ import org.junit.runner.RunWith;
 public class TestListActivityTest {
 
     @Rule
-    public ActivityTestRule<TestListActivity> testRule = new ActivityTestRule<>(TestListActivity.class, true, false);
+    public ActivityTestRule<TestListActivity> testRule = new ActivityTestRule<>(TestListActivity.class, false, true);
 
-    private IdlingResource idlingResource;
     private TestListActivity testListActivity;
 
     @Before
     public void init() {
-        testRule.launchActivity(null);
         testListActivity = testRule.getActivity();
-        idlingResource = testListActivity.getIdlingResource();
-        Espresso.registerIdlingResources(idlingResource);
     }
 
     @Test
@@ -68,18 +58,8 @@ public class TestListActivityTest {
         Assert.assertNotNull(recyclerView.getAdapter());
         Assert.assertNotNull(adapter instanceof StateListAdapter);
         StateListAdapter stateListAdapter = (StateListAdapter) adapter;
-
-        idlingResource.registerIdleTransitionCallback(() -> {
-            Assert.assertTrue(stateListAdapter.getItemCount() > 0);
-            Assert.assertTrue(stateListAdapter.getDataCount() == 20);
-            Espresso.onView(ViewMatchers.withId(R.id.data_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, ViewActions.click()));
-        });
-    }
-
-    @After
-    public void testfinalize() {
-        if (idlingResource != null)
-            Espresso.unregisterIdlingResources(idlingResource);
+        Assert.assertTrue(stateListAdapter.getItemCount() == 21);
+        Assert.assertTrue(stateListAdapter.getDataCount() == 20);
     }
 
 }

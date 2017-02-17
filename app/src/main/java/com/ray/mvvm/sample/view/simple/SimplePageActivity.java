@@ -15,7 +15,8 @@ import javax.inject.Inject;
 
 public final class SimplePageActivity extends BaseDIActivity implements SimplePageContract.View {
 
-    @Inject SimplePageVM viewModel;
+    @Inject
+    SimplePageVM viewModel;
 
     public static void start(IRedirect redirect) {
         Bundle bundle = new Bundle();
@@ -26,6 +27,16 @@ public final class SimplePageActivity extends BaseDIActivity implements SimplePa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindLayout(R.layout.activity_simple_page, viewModel);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override

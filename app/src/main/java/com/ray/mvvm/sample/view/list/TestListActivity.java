@@ -1,14 +1,12 @@
 package com.ray.mvvm.sample.view.list;
 
 import android.os.Bundle;
-import android.support.test.espresso.IdlingResource;
 import android.view.View;
 
 import com.ray.mvvm.lib.view.base.page.BaseDIActivity;
 import com.ray.mvvm.lib.view.base.view.IRedirect;
 import com.ray.mvvm.sample.R;
 import com.ray.mvvm.sample.model.model.TestEntity;
-import com.ray.mvvm.sample.test.SimpleIdlingResource;
 import com.ray.mvvm.sample.view.list.contract.DaggerTestListContract_Comp;
 import com.ray.mvvm.sample.view.list.contract.TestListContract;
 import com.ray.mvvm.sample.view.list.vm.TestListVM;
@@ -17,8 +15,6 @@ import com.ray.mvvm.sample.view.list.vm.module.TestListVMModule;
 import javax.inject.Inject;
 
 public class TestListActivity extends BaseDIActivity implements TestListContract.View {
-
-    public SimpleIdlingResource idlingResource;
 
     @Inject
     TestListVM viewModel;
@@ -31,9 +27,17 @@ public class TestListActivity extends BaseDIActivity implements TestListContract
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindLayout(R.layout.activity_test_list, viewModel);
-        idlingResource = new SimpleIdlingResource(false);
-        viewModel.setIdlingResource(idlingResource);
         viewModel.startRequest();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -50,10 +54,6 @@ public class TestListActivity extends BaseDIActivity implements TestListContract
     public void onItemClick(int position, View view, TestEntity testEntity) {
         showToast(testEntity.getName());
         viewModel.startRefreshRequestAuto();
-    }
-
-    public IdlingResource getIdlingResource() {
-        return idlingResource;
     }
 
 }
