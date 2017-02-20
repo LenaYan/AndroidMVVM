@@ -8,7 +8,7 @@ import com.ray.mvvm.sample.view.event.contract.EventBusContract;
 
 import javax.inject.Inject;
 
-import rx.Observable;
+import rx.Single;
 
 public class EventBusP extends CommonPresenter implements EventBusContract.Presenter {
 
@@ -18,7 +18,7 @@ public class EventBusP extends CommonPresenter implements EventBusContract.Prese
 
     @Override
     public void sendEvent() {
-        Observable.just(true)
+        Single.just(true)
                 .map(result -> {
                     RxBus.instance().post(new TestEvent(new TestEntity("Sent from thread" + Thread.currentThread().getId(), "Event from another thread.", System.currentTimeMillis())));
                     return result;
