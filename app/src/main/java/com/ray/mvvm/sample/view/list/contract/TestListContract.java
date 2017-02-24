@@ -6,7 +6,7 @@ import com.ray.mvvm.lib.model.model.ListRespEntity;
 import com.ray.mvvm.lib.presenter.IPresenter;
 import com.ray.mvvm.lib.view.base.comp.ActivityComp;
 import com.ray.mvvm.lib.view.base.view.IView;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.common.TestCellView;
 import com.ray.mvvm.sample.view.list.TestListActivity;
 import com.ray.mvvm.sample.view.list.vm.module.TestListVMModule;

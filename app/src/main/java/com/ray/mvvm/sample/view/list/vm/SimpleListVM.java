@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.ray.mvvm.lib.view.adapter.list.base.ListAdapter;
 import com.ray.mvvm.lib.viewmodel.ListVM;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.list.contract.SimpleListContract;
 
 import static com.ray.mvvm.sample.view.list.SimpleListActivity.MOCK_DATA_COUNT;

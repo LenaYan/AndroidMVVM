@@ -6,7 +6,7 @@ import android.view.View;
 import com.ray.mvvm.lib.view.base.page.BaseDIActivity;
 import com.ray.mvvm.lib.view.base.view.IRedirect;
 import com.ray.mvvm.sample.R;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.list.contract.DaggerTestListContract_Comp;
 import com.ray.mvvm.sample.view.list.contract.TestListContract;
 import com.ray.mvvm.sample.view.list.vm.TestListVM;

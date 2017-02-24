@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import com.ray.mvvm.lib.view.adapter.list.base.ListAdapter;
 import com.ray.mvvm.lib.viewmodel.ListVM;
 import com.ray.mvvm.sample.R;
-import com.ray.mvvm.sample.model.model.SampleEntity;
+import com.ray.mvvm.sample.model.model.sample.SampleEntity;
 import com.ray.mvvm.sample.view.event.EventBusActivity;
 import com.ray.mvvm.sample.view.list.SimpleListActivity;
 import com.ray.mvvm.sample.view.list.TestListActivity;

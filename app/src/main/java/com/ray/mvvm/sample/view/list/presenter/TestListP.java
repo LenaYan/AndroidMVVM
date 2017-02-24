@@ -3,7 +3,7 @@ package com.ray.mvvm.sample.view.list.presenter;
 import com.ray.mvvm.lib.model.http.ExObserver;
 import com.ray.mvvm.lib.model.model.ListRespEntity;
 import com.ray.mvvm.lib.presenter.CommonPresenter;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.list.contract.TestListContract;
 
 import java.util.ArrayList;

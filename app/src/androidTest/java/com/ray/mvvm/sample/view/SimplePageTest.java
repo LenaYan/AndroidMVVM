@@ -1,6 +1,8 @@
 package com.ray.mvvm.sample.view;
 
+import android.content.Context;
 import android.os.Build;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.matcher.ViewMatchers;
@@ -11,6 +13,8 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.ray.mvvm.sample.R;
 import com.ray.mvvm.sample.view.simple.SimplePageActivity;
+
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
@@ -46,6 +50,11 @@ public class SimplePageTest {
     @Before
     public void init() {
         System.out.println("Test started");
+        Context testContext = InstrumentationRegistry.getContext();
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        Assert.assertNotNull(testContext);
+        Assert.assertNotNull(appContext);
+        Assert.assertEquals(testContext.getPackageName(), appContext.getPackageName());
     }
 
     @Test

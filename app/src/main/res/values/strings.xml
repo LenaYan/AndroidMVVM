@@ -13,10 +13,12 @@
     <string name="submite_successfully">Submite Successfully.</string>
     <string name="done">Done</string>
     <string name="event_received">Event received.</string>
+    <string name="event_received_format">Event received %1$s %2$s</string>
     <string name="event_sent">Event sent</string>
     <string name="name_format">Name: %1$s</string>
     <string name="des_format">Des: %1$s</string>
     <string name="time_format">Time: %1$s</string>
+    <string name="event_msg_format">Name: %1$s \n Des: %2$s \n Time: %3$d</string>
 
     <!--Event-->
     <string name="local_sender">Local Sender</string>

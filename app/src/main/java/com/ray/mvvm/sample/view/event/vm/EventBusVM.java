@@ -8,7 +8,7 @@ import com.ray.mvvm.lib.widget.eventbus.RxBus;
 import com.ray.mvvm.sample.BR;
 import com.ray.mvvm.sample.R;
 import com.ray.mvvm.sample.TestEvent;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.event.EventBusNextActivity;
 import com.ray.mvvm.sample.view.event.contract.EventBusContract;
 
@@ -30,7 +30,7 @@ public class EventBusVM extends BaseVM<EventBusContract.Presenter, EventBusContr
 
     private void setEntity(TestEntity entity) {
         this.entity = entity;
-        EventBusVM.this.view.showToast(R.string.event_received);
+        view.showToast(R.string.event_received_format, entity.getName(), entity.getTime());
         notifyPropertyChanged(BR.entity);
     }
 

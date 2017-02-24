@@ -1,7 +1,7 @@
 package com.ray.mvvm.sample.view.simple.vm;
 
 import com.ray.mvvm.lib.viewmodel.SwipRefreshVM;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.simple.contract.SimpleDataPageContract;
 
 public class SimpleDataPageVM extends SwipRefreshVM<SimpleDataPageContract.Presenter, SimpleDataPageContract.View, TestEntity> {

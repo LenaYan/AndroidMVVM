@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.ray.mvvm.lib.view.adapter.OnItemClick;
 import com.ray.mvvm.lib.view.adapter.list.base.CellVM;
-import com.ray.mvvm.sample.model.model.SampleEntity;
+import com.ray.mvvm.sample.model.model.sample.SampleEntity;
 
 /**
  * Created by Android Studio.

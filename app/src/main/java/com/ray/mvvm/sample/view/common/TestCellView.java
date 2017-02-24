@@ -1,7 +1,7 @@
 package com.ray.mvvm.sample.view.common;
 
 import com.ray.mvvm.lib.view.adapter.OnItemClick;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 
 /**
  * Created by Android Studio.

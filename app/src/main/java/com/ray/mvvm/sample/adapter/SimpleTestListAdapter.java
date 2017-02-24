@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.ray.mvvm.lib.view.adapter.list.base.ListAdapter;
 import com.ray.mvvm.sample.databinding.ListCellTestBinding;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.common.TestCellView;
 import com.ray.mvvm.sample.view.common.vm.TestCellVM;
 

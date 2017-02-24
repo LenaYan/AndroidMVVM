@@ -4,7 +4,7 @@ import com.ray.mvvm.lib.di.scope.PerActivity;
 import com.ray.mvvm.lib.presenter.IPresenter;
 import com.ray.mvvm.lib.view.base.comp.ActivityComp;
 import com.ray.mvvm.lib.view.base.view.IView;
-import com.ray.mvvm.sample.model.model.TestEntity;
+import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.common.TestCellView;
 import com.ray.mvvm.sample.view.list.SimpleListActivity;
 import com.ray.mvvm.sample.view.list.vm.module.SimpleListVMModule;
