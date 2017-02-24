@@ -21,22 +21,23 @@ public class TestListP extends CommonPresenter implements TestListContract.Prese
 
     @Override
     public void requestTestList(int page, ExObserver<ListRespEntity<TestEntity>> observer) {
-        mockResp(() -> {
-            List<TestEntity> testEntities = new ArrayList<>();
-            ListRespEntity<TestEntity> respEntity = new ListRespEntity<>();
-            if (page == 1)
-                index = 0;
-            if (page <= 2) {
-                for (int i = 0; i < 20; i++) {
-                    TestEntity testEntity = new TestEntity("Name " + index, "Description", System.nanoTime());
-                    testEntities.add(testEntity);
-                    index += 1;
-                }
-                respEntity.setHasMore(true);
-            }
-            respEntity.setList(testEntities);
-            return respEntity;
-        })
+        mockResp(
+                () -> {
+                    List<TestEntity> testEntities = new ArrayList<>();
+                    ListRespEntity<TestEntity> respEntity = new ListRespEntity<>();
+                    if (page == 1)
+                        index = 0;
+                    if (page <= 2) {
+                        for (int i = 0; i < 20; i++) {
+                            TestEntity testEntity = new TestEntity("Name " + index, "Description", System.nanoTime());
+                            testEntities.add(testEntity);
+                            index += 1;
+                        }
+                        respEntity.setHasMore(true);
+                    }
+                    respEntity.setList(testEntities);
+                    return respEntity;
+                })
                 .compose(applyAsync(observer))
                 .subscribe(observer);
     }
