@@ -3,13 +3,11 @@
 
     <data>
 
-        <import type="android.databinding.ObservableField" />
-
-        <import type="com.ray.mvvm.sample.model.model.sample.TestEntity" />
+        <import type="com.ray.mvvm.sample.view.event.vm.EventBusNextVM" />
 
         <variable
-            name="testEntity"
-            type="ObservableField&lt;TestEntity&gt;" />
+            name="viewModel"
+            type="EventBusNextVM" />
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_send"
-            android:text="@{@string/event_msg_format(testEntity.name,testEntity.des,testEntity.time),default = EventMessage}" />
+            android:text="@{@string/event_msg_format(viewModel.data.name,viewModel.data.des,viewModel.data.time),default = EventMessage}" />
 
     </RelativeLayout>
 </layout>

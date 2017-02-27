@@ -12,7 +12,7 @@ import com.ray.mvvm.sample.model.model.sample.TestEntity;
 import com.ray.mvvm.sample.view.event.EventBusNextActivity;
 import com.ray.mvvm.sample.view.event.contract.EventBusContract;
 
-public class EventBusVM extends BaseVM<EventBusContract.Presenter, EventBusContract.View> {
+public final class EventBusVM extends BaseVM<EventBusContract.Presenter, EventBusContract.View> {
 
     private TestEntity entity;
 
