@@ -38,7 +38,7 @@ public class TestListP extends CommonPresenter implements TestListContract.Prese
                     respEntity.setList(testEntities);
                     return respEntity;
                 })
-                .compose(applyAsync(observer))
+                .compose(applyAsyncRequest(observer))
                 .subscribe(observer);
     }
 }

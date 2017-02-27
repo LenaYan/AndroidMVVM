@@ -24,27 +24,10 @@ android {
     signingConfigs {
         debug {
         }
-        rayman {
-            storeFile file("../ray.jks")
-            storePassword ray_jks_pwd
-            keyAlias 'mvvm'
-            keyPassword ray_jks_mvvm_pwd
-        }
         release {
-            storeFile file("../ray.jks")
-            storePassword ray_jks_pwd
-            keyAlias 'mvvm'
-            keyPassword ray_jks_mvvm_pwd
         }
     }
     buildTypes {
-        rayman {
-            signingConfig signingConfigs.rayman
-            minifyEnabled false
-            debuggable true
-            shrinkResources false
-            applicationIdSuffix '.dev'
-        }
         debug {
             signingConfig signingConfigs.debug
             minifyEnabled false
@@ -93,7 +76,6 @@ dependencies {
     provided depMap.JavaxAnnotations
 
     debugCompile depMap.LeakCanary
-    raymanCompile depMap.LeakCanary
     releaseCompile depMap.LeakCanaryAndroidNoOp
     testCompile depMap.LeakCanaryAndroidNoOp
 
