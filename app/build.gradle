@@ -25,22 +25,33 @@ android {
         debug {
         }
         release {
+            storeFile file("../ray.jks")
+            storePassword ray_jks_pwd
+            keyAlias 'mvvm'
+            keyPassword ray_jks_mvvm_pwd
         }
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
             minifyEnabled false
             debuggable true
             shrinkResources false
             applicationIdSuffix '.debug'
         }
         release {
-            signingConfig signingConfigs.release
             minifyEnabled false
             debuggable false
-            shrinkResources true
+            shrinkResources false
+//            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        rayman {
+            signingConfig signingConfigs.release
+        }
+        lena {
+            signingConfig signingConfigs.release
         }
     }
     dataBinding {
